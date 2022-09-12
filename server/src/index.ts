@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import { errorHandler } from './middleware/errorHandler';
 import { connectDB } from './config/db';
+import eventRoutes from './routes/eventRoutes';
 
 // Variables
 const port = process.env.PORT || 5000;
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 // Routes
+app.use('/api/v1/events', eventRoutes);
 
 // Error handler middleware
 app.use(errorHandler);
