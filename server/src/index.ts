@@ -28,12 +28,16 @@ app.use('/api/v1/events', eventRoutes);
 app.use(errorHandler);
 
 // Start server and connect to database
-try {
-  connectDB().then(() => {
-    app.listen(port, () => {
-      console.log(`Server running on port ${port}`);
+if (process.env.NODE_ENV !== 'test') {
+  try {
+    connectDB().then(() => {
+      app.listen(port, () => {
+        console.log(`Server running on port ${port}`);
+      });
     });
-  });
-} catch (err) {
-  console.log(`Error while connecting to the server: ${err}`);
+  } catch (err) {
+    console.log(`Error while connecting to the server: ${err}`);
+  }
 }
+
+export default app;
