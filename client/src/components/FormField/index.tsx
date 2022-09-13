@@ -1,4 +1,4 @@
-import { Field } from 'formik';
+import { Field, FieldProps } from 'formik';
 
 // Styles
 import * as Styled from './FormField.styled';
@@ -17,7 +17,7 @@ const FormField = ({
     <Styled.FieldWrapper>
       <Styled.Label htmlFor={name}>{label}</Styled.Label>
       <Field name={name}>
-        {({ field }: any) => (
+        {({ field }: FieldProps) => (
           <Styled.InputField
             id={name}
             type={type}

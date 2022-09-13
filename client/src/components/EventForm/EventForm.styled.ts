@@ -12,8 +12,8 @@ export const EventFormWrapper = styled.div`
 
 export const Title = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.xxl};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.white};
+  font-weight: ${({ theme }) => theme.fontWeight.black};
+  color: ${({ theme }) => theme.colors.secondaryLight};
   margin-bottom: 30px;
   letter-spacing: 1px;
 `;
@@ -32,8 +32,8 @@ export const FormContainer = styled.div`
 
 export const Header = styled.h2`
   font-size: ${({ theme }) => theme.fontSize.xl};
-  font-weight: ${({ theme }) => theme.fontWeight.bold};
-  color: ${({ theme }) => theme.colors.black};
+  font-weight: ${({ theme }) => theme.fontWeight.black};
+  color: ${({ theme }) => theme.colors.primaryLight};
   text-align: center;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -45,23 +45,20 @@ export const Button = styled.button`
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.primaryLight};
+  background-color: ${({ theme }) => theme.colors.primary};
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: ${({ theme }) => theme.fontWeight.bold};
   letter-spacing: 1px;
   text-decoration: none;
   padding: 15px 20px;
   margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.primaryLight};
   }
 
   &:active {

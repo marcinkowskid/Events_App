@@ -7,6 +7,10 @@ export const FieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+
+  input[type='date']::-webkit-datetime-edit {
+    color: ${({ theme }) => theme.colors.gray};
+  }
 `;
 
 export const Label = styled.label`

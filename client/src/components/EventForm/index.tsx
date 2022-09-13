@@ -1,14 +1,14 @@
-import { Formik, Form, FormikProps, Field } from 'formik';
+import { Formik, Form, FormikProps } from 'formik';
 import * as Yup from 'yup';
 
-// Utils
-import { emailValidator } from '../../utils/validation';
-// Components
-import { FormField } from '../';
 // Styles
 import * as Styled from './EventForm.styled';
 // Types
 import { EventFormProps } from './types';
+// Utils
+import { emailValidator } from '../../utils/validation';
+// Components
+import { FormField } from '../';
 
 const EventForm = () => {
   const initialValues: EventFormProps = {
@@ -66,6 +66,14 @@ const EventForm = () => {
                 placeholder="Enter email..."
                 touched={touched.email}
                 error={errors.email}
+              />
+              <FormField
+                label="Event date"
+                type="date"
+                name="eventDate"
+                placeholder="Choose an event date..."
+                touched={touched.eventDate}
+                error={errors.eventDate}
               />
               <Styled.Button type="submit">Create event</Styled.Button>
             </Form>
