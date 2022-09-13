@@ -1,5 +1,5 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -8,7 +8,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
+    sourceMapFilename: '[name].js.map',
   },
+  devtool: 'source-map',
   devServer: {
     port: 3000,
   },
@@ -40,4 +42,4 @@ module.exports = {
       filename: 'index.html',
     }),
   ],
-}
+};
