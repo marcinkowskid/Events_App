@@ -29,6 +29,11 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'ts-loader',
       },
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
     ],
   },
   resolve: {

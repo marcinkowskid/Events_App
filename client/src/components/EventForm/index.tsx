@@ -1,16 +1,21 @@
-import { Formik, Form, FormikProps } from 'formik';
+import { Formik, Form, FormikProps, FormikState } from 'formik';
 import * as Yup from 'yup';
 
 // Styles
 import * as Styled from './EventForm.styled';
 // Types
 import { EventFormProps } from './types';
-// Utils
+// Utils, hooks and actions
 import { emailValidator } from '../../utils/validation';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { addEvent } from '../../store/eventsSlice';
 // Components
-import { FormField } from '../';
+import { FormField, Loader } from '../';
 
 const EventForm = () => {
+  const dispatch = useAppDispatch();
+  const { loading, error } = useAppSelector((state) => state.events);
+
   const initialValues: EventFormProps = {
     firstName: '',
     lastName: '',
@@ -28,7 +33,11 @@ const EventForm = () => {
   });
 
   const handleSubmitForm = (values: EventFormProps) => {
-    console.log(values);
+    const newEvent = {
+      ...values,
+      eventDate: new Date(values.eventDate),
+    };
+    dispatch(addEvent(newEvent));
   };
 
   return (
@@ -39,7 +48,10 @@ const EventForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
-          onSubmit={(values) => handleSubmitForm(values)}
+          onSubmit={(values, { resetForm }) => {
+            handleSubmitForm(values);
+            resetForm();
+          }}
         >
           {({ errors, touched }: FormikProps<EventFormProps>) => (
             <Form>
@@ -75,7 +87,12 @@ const EventForm = () => {
                 touched={touched.eventDate}
                 error={errors.eventDate}
               />
-              <Styled.Button type="submit">Create event</Styled.Button>
+              <Styled.Button type="submit" disabled={loading}>
+                {loading ? <Loader /> : 'Create event'}
+              </Styled.Button>
+              {error && (
+                <Styled.Error>Failed to create a new event</Styled.Error>
+              )}
             </Form>
           )}
         </Formik>

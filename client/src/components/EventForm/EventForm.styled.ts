@@ -40,8 +40,12 @@ export const Header = styled.h2`
 `;
 
 export const Button = styled.button`
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 55px;
+  max-height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
   color: ${({ theme }) => theme.colors.white};
@@ -51,7 +55,7 @@ export const Button = styled.button`
   letter-spacing: 1px;
   text-decoration: none;
   padding: 15px 20px;
-  margin-top: 20px;
+  margin-top: 30px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -64,4 +68,17 @@ export const Button = styled.button`
   &:active {
     transform: scale(0.95);
   }
+`;
+
+export const Error = styled.span`
+  display: block;
+  width: 100%;
+  height: auto;
+  color: ${({ theme }) => theme.colors.red};
+  font-size: ${({ theme }) => theme.fontSize.s};
+  font-weight: ${({ theme }) => theme.fontWeight.bold};
+  margin-top: 10px;
+  padding: 0 10px;
+  text-align: right;
+  letter-spacing: 1px;
 `;
