@@ -1,4 +1,4 @@
-import { Formik, Form, FormikProps, FormikState } from 'formik';
+import { Formik, Form, FormikProps } from 'formik';
 import * as Yup from 'yup';
 
 // Styles
@@ -80,7 +80,7 @@ const EventForm = () => {
                 error={errors.email}
               />
               <FormField
-                label="Event date"
+                label="Event Date"
                 type="date"
                 name="eventDate"
                 placeholder="Choose an event date..."
