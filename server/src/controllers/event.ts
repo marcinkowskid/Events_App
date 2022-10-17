@@ -6,7 +6,7 @@ import Event from '../models/event';
 
 // @desc    Add a user event
 // @route   POST /api/v1/events
-// @access  Public
+// @access  Private
 
 export const createEvent = asyncHandler(async (req: Request, res: Response) => {
   try {

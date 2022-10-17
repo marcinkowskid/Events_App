@@ -26,7 +26,7 @@ export const registerUser = asyncHandler(
       if (userExisting) {
         res.status(400).json({
           success: false,
-          error: 'User already exists',
+          error: 'User already exists.',
         });
       }
 
@@ -48,7 +48,6 @@ export const registerUser = asyncHandler(
       res.status(201).json({
         success: true,
         data: {
-          user,
           token,
         },
       });
@@ -79,7 +78,7 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
 
     if (!user) {
       res.status(400);
-      throw new Error('Invalid credentials');
+      throw new Error('Invalid credentials.');
     }
 
     // Check if password matches
@@ -87,7 +86,7 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
 
     if (!passMatches) {
       res.status(400);
-      throw new Error('Invalid credentials');
+      throw new Error('Invalid credentials.');
     }
 
     // Create JWT
@@ -96,7 +95,6 @@ export const loginUser = asyncHandler(async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       data: {
-        user,
         token,
       },
     });
