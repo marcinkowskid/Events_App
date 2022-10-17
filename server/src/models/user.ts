@@ -2,7 +2,7 @@ import mongoose, { Schema } from 'mongoose';
 import { User } from 'types/user';
 
 // Validators and validator's messages
-import { emailValidator, emailValidatorMsg } from 'utils/validators';
+import { emailValidator, emailValidatorMsg } from '../utils/validators';
 
 const userSchema = new Schema<User>(
   {

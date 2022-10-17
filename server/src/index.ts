@@ -8,6 +8,7 @@ import helmet from 'helmet';
 import { errorHandler } from './middleware/errorHandler';
 import { connectDB } from './config/db';
 import eventRoutes from './routes/eventRoutes';
+import authUserRoutes from './routes/authUserRoutes';
 
 // Variables
 const port = process.env.PORT || 5000;
@@ -23,6 +24,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/v1/events', eventRoutes);
+app.use('/api/v1/users', authUserRoutes);
 
 // Error handler middleware
 app.use(errorHandler);

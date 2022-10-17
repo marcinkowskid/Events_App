@@ -18,15 +18,11 @@ export const createEvent = asyncHandler(async (req: Request, res: Response) => {
     });
   } catch (error) {
     if (error instanceof Error && error.name === 'ValidationError') {
-      res.status(400).json({
-        success: false,
-        error: error.message,
-      });
+      res.status(400);
+      throw new Error(error.message);
     } else {
-      res.status(500).json({
-        success: false,
-        error: `Server Error: ${error}`,
-      });
+      res.status(500);
+      throw new Error('Server Error');
     }
   }
 });
