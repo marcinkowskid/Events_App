@@ -10,12 +10,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x, 18.x]
-
     steps:
       - uses: actions/checkout@v3
+      - working-directory: ./client
       - name: Test Workflow CI
       - run: cd client
       - run: npm i
