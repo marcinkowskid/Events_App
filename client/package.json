@@ -4,7 +4,8 @@
   "description": "Frontend Events app built with React.",
   "main": "src/index.tsx",
   "scripts": {
-    "test": "jest --watchAll",
+    "test:watch": "jest --watchAll",
+    "test": "jest",
     "dev": "webpack serve --mode development --open --hot",
     "build": "webpack --mode production"
   },
