@@ -2,7 +2,7 @@
 
 ## Description
 
-MERN Fullstack App build for adding simple user events - v10.
+MERN Fullstack App build for adding simple user events - v11.
 
 ### Used Technologies
 
